@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.2</version>
+    <date>2019-10-16T02:31:24Z</date>
+    <groups>
+        <group>
+            <name>Templates/Server hardware</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Server Dell HW Information</template>
+            <name>Template Server Dell HW Information</name>
+            <description/>
+            <groups>
+                <group>
+                    <name>Templates/Server hardware</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Dell HW Information</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>Dell HW Information Master</name>
+                    <type>10</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>dell_info.sh[{$DELL_WARRANTY_API_KEY},{$DELL_WARRANTY_KEY_SECRET},{HOST.NAME}]</key>
+                    <delay>1d</delay>
+                    <history>90d</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Dell HW Information</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing/>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Next Business Day Onsite Support</name>
+                    <type>18</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>hw.dell.info[NBD]</key>
+                    <delay>0</delay>
+                    <history>90d</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Dell HW Information</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>12</type>
+                            <params>$.entitlements[?(@.serviceLevelCode == 'NBD')].endDate</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                        <step>
+                            <type>4</type>
+                            <params>[]</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                        <step>
+                            <type>21</type>
+                            <params>var last_date = value.split(&quot;,&quot;).pop(-1).replace(/&quot;/g, '');
+enddate = new Date(last_date);
+var today = new Date();
+return (enddate.getTime() - today.getTime()) / 1000 / 60 / 60 / 24;</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item>
+                        <key>dell_info.sh[{$DELL_WARRANTY_API_KEY},{$DELL_WARRANTY_KEY_SECRET},{HOST.NAME}]</key>
+                    </master_item>
+                </item>
+                <item>
+                    <name>Next Business Day 5x8 Onsite Support - Parts Only</name>
+                    <type>18</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>hw.dell.info[POW]</key>
+                    <delay>0</delay>
+                    <history>90d</history>
+                    <trends>0</trends>
+                    <status>0</status>
+                    <value_type>4</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Dell HW Information</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>12</type>
+                            <params>$.entitlements[?(@.serviceLevelCode == 'POW')].endDate</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                        <step>
+                            <type>4</type>
+                            <params>[]</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                        <step>
+                            <type>21</type>
+                            <params>var last_date = value.split(&quot;,&quot;).pop(-1).replace(/&quot;/g, '');
+enddate = new Date(last_date);
+var today = new Date();
+return (enddate.getTime() - today.getTime()) / 1000 / 60 / 60 / 24;</params>
+                            <error_handler>0</error_handler>
+                            <error_handler_params/>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item>
+                        <key>dell_info.sh[{$DELL_WARRANTY_API_KEY},{$DELL_WARRANTY_KEY_SECRET},{HOST.NAME}]</key>
+                    </master_item>
+                </item>
+            </items>
+            <discovery_rules/>
+            <httptests/>
+            <macros>
+                <macro>
+                    <macro>{$DELL_WARRANTY_API_KEY}</macro>
+                    <value>Warranty_API_Key_You_Get_From_DELL_TechDirect</value>
+                </macro>
+                <macro>
+                    <macro>{$DELL_WARRANTY_KEY_SECRET}</macro>
+                    <value>Warranty_Key_Secret_You_Get_From_DELL_TechDirect</value>
+                </macro>
+            </macros>
+            <templates/>
+            <screens/>
+            <tags/>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{Template Server Dell HW Information:hw.dell.info[NBD].last()}&lt;30 and {Template Server Dell HW Information:hw.dell.info[POW].last()}&lt;30</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Warranty days left of NBD and/or POW is less than 30 days</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+        <trigger>
+            <expression>{Template Server Dell HW Information:hw.dell.info[NBD].last()}&lt;90 and {Template Server Dell HW Information:hw.dell.info[POW].last()}&lt;90</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Warranty days left of NBD and/or POW is less than 90 days</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>1</manual_close>
+            <dependencies>
+                <dependency>
+                    <name>Warranty days left of NBD and/or POW is less than 30 days</name>
+                    <expression>{Template Server Dell HW Information:hw.dell.info[NBD].last()}&lt;30 and {Template Server Dell HW Information:hw.dell.info[POW].last()}&lt;30</expression>
+                    <recovery_expression/>
+                </dependency>
+            </dependencies>
+            <tags/>
+        </trigger>
+    </triggers>
+</zabbix_export>

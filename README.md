@@ -1,5 +1,5 @@
 # dell_warranty_zabbix
-DELL warrany days Left monitoring for ZABBIX Via the lastest oauth v2 & eapi v5
+DELL warrany days Left monitoring for ZABBIX via the lastest oauth v2 & eapi v5
 
 ## follow the steps:
 

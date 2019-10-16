@@ -18,7 +18,7 @@ DELL warrany days Left monitoring for ZABBIX Via the lastest oauth v2 & eapi v5
 
   Host name = IP Address
   
-  Visible name = SNMPv2 agent "SNMPv2-MIB::sysName.0", like idrac-xxxxxxx in DELL's default formation.
+  Visible name = SNMPv2 agent "SNMPv2-MIB::sysName.0", like idrac-xxxxxxx in default.
   
   So I send Visible name ({HOST.NAME}) to dell_info.sh and remove idrac- to get service tag via service_tag=$(echo $3| cut -d"-" -f2)
   

@@ -3,15 +3,18 @@ DELL warrany days Left monitoring for ZABBIX Via the lastest oauth v2 & eapi v5
 
 ## follow the steps:
 
-1.Request an Warranty API key from DELL TechDirect, this may take couple days to be approved.
+- Request an Warranty API key from DELL TechDirect, this may take couple days to be approved.
 
-2.Place dell_info.sh to external scripts directory of Your ZABBIX Server/Proxy 
+
+- Place dell_info.sh to external scripts directory of Your ZABBIX Server/Proxy 
+
 
   Don't forget to chmod +x dell_info.sh, and yum -y install jq
   
-3.import the template file, change value of {$DELL_WARRANTY_API_KEY} and {$DELL_WARRANTY_KEY_SECRET} to which you get from DELL
+- import the template file, change value of {$DELL_WARRANTY_API_KEY} and {$DELL_WARRANTY_KEY_SECRET} to which you get from DELL
 
-4.In my discovery rule:
+
+- In my discovery rule:
 
   Host name = IP Address
   
